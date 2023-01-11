@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstraction
 {
-    public interface ICommentDal
+    public interface ICommentDal : IGenericDal<Comment>
     {
     }
 }

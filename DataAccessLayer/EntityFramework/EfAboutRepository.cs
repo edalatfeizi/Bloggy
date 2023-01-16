@@ -12,7 +12,7 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfAboutRepository : GenericRepository<About>, IAboutDal
     {
-        public EfAboutRepository(Context context) : base(context)
+        public EfAboutRepository(BlogDbContext context) : base(context)
         {
         }
     } 

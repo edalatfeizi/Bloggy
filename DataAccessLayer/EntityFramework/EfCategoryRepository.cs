@@ -12,7 +12,7 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfCategoryRepository : GenericRepository<Category>, ICategoryDal
     {
-        public EfCategoryRepository(Context context) : base(context)
+        public EfCategoryRepository(BlogDbContext context) : base(context)
         {
         }
     }

@@ -7,16 +7,44 @@ using System.Threading.Tasks;
 
 namespace EntityLayer.Concrete
 {
-    public class Category
+    public class Category : Entity
     {
-        [Key]
-        public int CategoryID { get; set; }
-        public string CategoryName { get; set; }
-        public string CategoryDescription { get; set; }
-        public bool CategoryStatus { get; set; }
+        private int _id;
+        public int Id => _id;
 
-        public List<Blog> Blogs { get; set; }
+        private string _name;
+        public string Name => _name;
 
+        private string _description;
+        public string Description => _description;
 
+        private bool _status;
+        public bool Status => _status;
+
+        public ICollection<Post> Posts { get; set; }
+        private Category()
+        {
+
+        }
+
+        public Category(int id, string name, string description, bool status) : this()
+        {
+            _id = id;
+            _name = name;
+            _description = description;
+            _status = status;
+        }
+
+        public bool IsSame(Category other)
+        {
+            return (this._id == other._id &&
+                    this._name == other._name &&
+                    this._description == other._description &&
+                    this._status == other._status );
+        }
+        public override bool Equals(object obj)
+        {
+            return base.Equals(obj) && IsSame((Category)obj);
+        }
     }
 }

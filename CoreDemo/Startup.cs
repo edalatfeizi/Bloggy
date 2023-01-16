@@ -1,3 +1,8 @@
+using BusinessLayer.Abstract;
+using BusinessLayer.Concrete;
+using DataAccessLayer.Abstraction;
+using DataAccessLayer.Concrete;
+using DataAccessLayer.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -24,6 +29,9 @@ namespace CoreDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
+            //var db = services.AddDbContext<BlogDbContext>(ServiceLifetime.Singleton);
+            //var s = services.AddScoped<ICategoryDal>(new GenericRepository(db));
+            //services.AddScoped<ICategoryService>(new CategoryManager(s));
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

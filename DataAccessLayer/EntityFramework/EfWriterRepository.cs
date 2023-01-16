@@ -10,9 +10,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfWriterRepository : GenericRepository<Writer>, IWriterDal
+    public class EfWriterRepository : GenericRepository<Author>, IWriterDal
     {
-        public EfWriterRepository(Context context) : base(context)
+        public EfWriterRepository(BlogDbContext context) : base(context)
         {
         }
     }

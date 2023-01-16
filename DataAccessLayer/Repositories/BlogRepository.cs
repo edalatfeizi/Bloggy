@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Repositories
 {
-    public class BlogRepository : GenericRepository<Blog>, IBlogDal
+    public class BlogRepository : GenericRepository<Post>, IBlogDal
     {
-        private readonly Context _context;
+        private readonly BlogDbContext _context;
 
-        public BlogRepository(Context context) : base(context)
+        public BlogRepository(BlogDbContext context) : base(context)
         {
             this._context = context;
 

@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstraction
 {
-    public interface IBlogDal : IGenericDal<Blog>
+    public interface IBlogDal : IGenericDal<Post>
     {
     }
 }

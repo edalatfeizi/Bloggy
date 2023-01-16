@@ -11,9 +11,9 @@ namespace DataAccessLayer.Repositories
 {
     public class CommentRepository : GenericRepository<Comment>, ICommentDal
     {
-        private readonly Context _context;
+        private readonly BlogDbContext _context;
 
-        public CommentRepository(Context context) : base(context)
+        public CommentRepository(BlogDbContext context) : base(context)
         {
             this._context = context;
         }

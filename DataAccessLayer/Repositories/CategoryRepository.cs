@@ -11,9 +11,9 @@ namespace DataAccessLayer.Repositories
 {
     public class CategoryRepository : GenericRepository<Category>, ICategoryDal
     {
-        private readonly Context _context;
+        private readonly BlogDbContext _context;
 
-        public CategoryRepository(Context context) : base(context)
+        public CategoryRepository(BlogDbContext context) : base(context)
         {
             this._context = context;
         }

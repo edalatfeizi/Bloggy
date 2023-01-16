@@ -10,9 +10,9 @@ namespace DataAccessLayer.Repositories
 {
     public class GenericRepository<T> : IGenericDal<T> where T : class
     {
-        private readonly Context _context;
+        private readonly BlogDbContext _context;
 
-        public GenericRepository(Context context)
+        public GenericRepository(BlogDbContext context)
         {
             this._context = context;
         }

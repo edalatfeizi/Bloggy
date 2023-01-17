@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstraction
 {
-    public interface IGenericDal<T> where T : class
+    public interface IGenericRepository<T> where T : class
     {
      
         void Insert(T t);

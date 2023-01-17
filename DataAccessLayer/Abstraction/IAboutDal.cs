@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstraction
 {
-    public interface IAboutDal : IGenericDal<About>
+    public interface IAboutDal : IGenericRepository<About>
     {
     }
 }

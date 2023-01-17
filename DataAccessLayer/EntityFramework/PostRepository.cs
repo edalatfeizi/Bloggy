@@ -12,9 +12,9 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.EntityFramework
 {
-    public class EfBlogRepository : GenericRepository<Post>, IBlogDal
+    public class PostRepository : GenericRepository<Post>, IPostRepository
     {
-        public EfBlogRepository(BlogDbContext context) : base(context)
+        public PostRepository(BlogDbContext context) : base(context)
         {
         }
     }

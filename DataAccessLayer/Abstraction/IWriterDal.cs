@@ -7,7 +7,7 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Abstraction
 {
-    public interface IWriterDal : IGenericDal<Author>
+    public interface IWriterDal : IGenericRepository<Author>
     {
     }
 }

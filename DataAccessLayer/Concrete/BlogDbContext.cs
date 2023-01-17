@@ -7,13 +7,18 @@ using System.Threading.Tasks;
 
 namespace DataAccessLayer.Concrete
 {
-    public class BlogDbContext : DbContext
+    public class BlogDbContext : DbContext,  IBlogDbContext
     {
 
         public const string DB_SCHEMA = "blog";
+
+        public BlogDbContext(DbContextOptions<BlogDbContext> options): base(options)
+        {
+        }
+
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
-            optionsBuilder.UseSqlServer("server=DESKTOP-MN1U1M6;database=BlogDb; integrated security=true;");
+            //optionsBuilder.UseSqlServer("server=DESKTOP-MN1U1M6;database=BlogDb; integrated security=true;");
             base.OnConfiguring(optionsBuilder);
         }
         protected override void OnModelCreating(ModelBuilder modelBuilder)

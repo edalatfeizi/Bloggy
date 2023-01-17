@@ -2,10 +2,12 @@ using BusinessLayer.Abstract;
 using BusinessLayer.Concrete;
 using DataAccessLayer.Abstraction;
 using DataAccessLayer.Concrete;
+using DataAccessLayer.EntityFramework;
 using DataAccessLayer.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -29,9 +31,19 @@ namespace CoreDemo
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddControllersWithViews();
-            //var db = services.AddDbContext<BlogDbContext>(ServiceLifetime.Singleton);
-            //var s = services.AddScoped<ICategoryDal>(new GenericRepository(db));
-            //services.AddScoped<ICategoryService>(new CategoryManager(s));
+            services.AddDbContext<BlogDbContext>(options =>
+            options.UseSqlServer(Configuration["ConnectionStrings:DefaultConnection"]));
+
+            //services.AddScoped<IBlogDbContext, BlogDbContext>();
+            services.AddScoped<IPostRepository, PostRepository>();
+
+            //services.AddScoped<IPostRepository, PostRepository>((IServiceProvider serviceProvider) =>
+            //{
+            //    return new PostRepository(serviceProvider.GetRequiredService<BlogDbContext>());
+            //});
+
+            services.AddScoped<IPostService, PostManager>();
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

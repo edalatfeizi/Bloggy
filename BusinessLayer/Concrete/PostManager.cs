@@ -5,41 +5,47 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Threading;
 using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
     public class PostManager : IPostService
     {
-        private readonly IPostRepository _post_repository;
+        private readonly IPostRepository _postRepository;
 
         public PostManager(IPostRepository postRepository)
         {
-            this._post_repository = postRepository;
+            this._postRepository = postRepository;
         }
         public void Add(Post post)
         {
-            _post_repository.Insert(post);
+            _postRepository.Insert(post);
         }
 
         public Post GetById(int id)
         {
-            return _post_repository.GetById(id);
+            return _postRepository.GetById(id);
         }
 
         public List<Post> GetList()
         {
-            return _post_repository.GetListAll();
+            return _postRepository.GetListAll();
+        }
+
+        public Task<List<Post>> GetPostListWithCategoryAsync(CancellationToken cancellationToken)
+        {
+            return _postRepository.GetPostListWithCategoryAsync(cancellationToken);
         }
 
         public void Remove(Post post)
         {
-            _post_repository.Delete(post);
+            _postRepository.Delete(post);
         }
 
         public void Update(Post post)
         {
-            _post_repository.Update(post);
+            _postRepository.Update(post);
         }
     }
 }

@@ -10,11 +10,11 @@ using System.Threading.Tasks;
 
 namespace BusinessLayer.Concrete
 {
-    public class PostManager : IPostService
+    public class PostService : IPostService
     {
         private readonly IPostRepository _postRepository;
 
-        public PostManager(IPostRepository postRepository)
+        public PostService(IPostRepository postRepository)
         {
             this._postRepository = postRepository;
         }

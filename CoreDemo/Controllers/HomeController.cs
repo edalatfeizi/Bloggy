@@ -1,4 +1,5 @@
-﻿using CoreDemo.Models;
+﻿using BusinessLayer.Abstract;
+using CoreDemo.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.Extensions.Logging;
 using System;
@@ -12,11 +13,12 @@ namespace CoreDemo.Controllers
     public class HomeController : Controller
     {
         private readonly ILogger<HomeController> _logger;
+		private readonly ITest<HomeController> _test;
 
-        public HomeController(ILogger<HomeController> logger)
+		public HomeController(ILogger<HomeController> logger)
         {
             _logger = logger;
-        }
+		}
 
         public IActionResult Index()
         {

@@ -20,7 +20,7 @@ namespace DataAccessLayer.EntityFramework
         {
         }
 
-        public async Task<List<Post>> GetPostListWithCategoryAsync(CancellationToken cancellationToken)
+		public async Task<List<Post>> GetPostListWithCategoryAsync(CancellationToken cancellationToken)
         {
             using (var c = _context)
             {

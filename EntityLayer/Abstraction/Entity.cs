@@ -1,8 +1,8 @@
 ﻿
-using EntityLayer.Concrete;
+using EntityLayer.Abstraction;
 using System;
 
-public abstract class Entity
+public abstract class Entity : IBlogEntityModel
 {
     int _id;
     public virtual int Id
@@ -20,7 +20,7 @@ public abstract class Entity
         return this.Id == ((Entity)obj).Id;
     }
 
-    public static bool operator ==(Entity left, Entity right)
+    public static bool operator == (Entity left, Entity right)
     {
         if (Object.Equals(left, null))
             return (Object.ReferenceEquals(right, null)) ? true : false;
